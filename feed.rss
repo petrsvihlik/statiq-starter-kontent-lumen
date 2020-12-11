@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Lumen Blog</title>
+		<link>/</link>
+		<description />
+		<copyright>2020</copyright>
+		<pubDate>Fri, 11 Dec 2020 08:53:29 GMT</pubDate>
+		<lastBuildDate>Fri, 11 Dec 2020 08:53:29 GMT</lastBuildDate>
+		<item>
+			<title>Humane Typography in the Digital Age</title>
+			<link>/posts/humane-typography-in-the-digital-age</link>
+			<description>An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.</description>
+			<enclosure url="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/8a236294-a058-42df-a657-0d4a78affe52/42-line-bible.jpg" length="0" type="image" />
+			<guid isPermaLink="false">/posts/humane-typography-in-the-digital-age</guid>
+			<pubDate>Thu, 01 Oct 2020 00:00:00 GMT</pubDate>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>A Brief History of Typography</title>
+			<link>/posts/a-brief-history-of-typography</link>
+			<description>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</description>
+			<enclosure url="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/64930061-038c-4b3a-837c-38bbe222b983/1.jpg" length="0" type="image" />
+			<guid isPermaLink="false">/posts/a-brief-history-of-typography</guid>
+			<pubDate>Mon, 01 Jun 2020 00:00:00 GMT</pubDate>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>Perfecting the Art of Perfection</title>
+			<link>/posts/perfecting-the-art-of-perfection</link>
+			<description>Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</description>
+			<enclosure url="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/83043999-309d-4956-a399-aad4b7a21519/1.jpg" length="0" type="image" />
+			<guid isPermaLink="false">/posts/perfecting-the-art-of-perfection</guid>
+			<pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>Upgraded to Gatsby v2</title>
+			<link>/posts/upgraded-to-gatsby-v2</link>
+			<description>This starter has been forked and upgraded to Gatsby v2</description>
+			<enclosure url="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/9f854562-657a-44a0-bc82-7c441b66614d/92a7b2bab0013bb5b18d0c3e3ca13796.png" length="0" type="image" />
+			<guid isPermaLink="false">/posts/upgraded-to-gatsby-v2</guid>
+			<pubDate>Sat, 29 Feb 2020 00:00:00 GMT</pubDate>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+		<item>
+			<title>The Origins of Social Stationery Lettering</title>
+			<link>/posts/the-origins-of-social-stationery-lettering</link>
+			<description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</description>
+			<enclosure url="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/78327bb2-73e1-4869-9254-11f840b98638/1.jpg" length="0" type="image" />
+			<guid isPermaLink="false">/posts/the-origins-of-social-stationery-lettering</guid>
+			<pubDate>Sat, 01 Feb 2020 00:00:00 GMT</pubDate>
+			<comments xmlns="http://purl.org/rss/1.0/modules/slash/">0</comments>
+		</item>
+	</channel>
+</rss>

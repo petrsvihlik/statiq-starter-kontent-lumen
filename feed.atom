@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>/</id>
+	<title>Lumen Blog</title>
+	<link rel="self" href="/" />
+	<rights>2020</rights>
+	<updated>2020-12-11T08:53:29Z</updated>
+	<entry>
+		<id>/posts/humane-typography-in-the-digital-age</id>
+		<title>Humane Typography in the Digital Age</title>
+		<link href="/posts/humane-typography-in-the-digital-age" />
+		<link rel="enclosure" type="image" href="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/8a236294-a058-42df-a657-0d4a78affe52/42-line-bible.jpg" />
+		<updated>2020-10-01T00:00:00Z</updated>
+		<summary>An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.</summary>
+	</entry>
+	<entry>
+		<id>/posts/a-brief-history-of-typography</id>
+		<title>A Brief History of Typography</title>
+		<link href="/posts/a-brief-history-of-typography" />
+		<link rel="enclosure" type="image" href="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/64930061-038c-4b3a-837c-38bbe222b983/1.jpg" />
+		<updated>2020-06-01T00:00:00Z</updated>
+		<summary>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</summary>
+	</entry>
+	<entry>
+		<id>/posts/perfecting-the-art-of-perfection</id>
+		<title>Perfecting the Art of Perfection</title>
+		<link href="/posts/perfecting-the-art-of-perfection" />
+		<link rel="enclosure" type="image" href="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/83043999-309d-4956-a399-aad4b7a21519/1.jpg" />
+		<updated>2020-04-01T00:00:00Z</updated>
+		<summary>Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</summary>
+	</entry>
+	<entry>
+		<id>/posts/upgraded-to-gatsby-v2</id>
+		<title>Upgraded to Gatsby v2</title>
+		<link href="/posts/upgraded-to-gatsby-v2" />
+		<link rel="enclosure" type="image" href="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/9f854562-657a-44a0-bc82-7c441b66614d/92a7b2bab0013bb5b18d0c3e3ca13796.png" />
+		<updated>2020-02-29T00:00:00Z</updated>
+		<summary>This starter has been forked and upgraded to Gatsby v2</summary>
+	</entry>
+	<entry>
+		<id>/posts/the-origins-of-social-stationery-lettering</id>
+		<title>The Origins of Social Stationery Lettering</title>
+		<link href="/posts/the-origins-of-social-stationery-lettering" />
+		<link rel="enclosure" type="image" href="https://assets-eu-01.kc-usercontent.com/9f25588c-7478-01ce-a4c1-90a6f971ba9c/78327bb2-73e1-4869-9254-11f840b98638/1.jpg" />
+		<updated>2020-02-01T00:00:00Z</updated>
+		<summary>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</summary>
+	</entry>
+</feed>
