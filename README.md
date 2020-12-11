@@ -83,6 +83,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 ### [Web Spotlight](https://webspotlight.kontent.ai/)
 
 - Add [Web Spotlight](https://kontent.ai/pricing) to your current plan
+- Set up [preview URLs](https://i.imgur.com/fYzG7mZ.png)
 - Start editing!
 ![Web Spotlight Screenshot](https://i.imgur.com/0WykmeX.png)
 
