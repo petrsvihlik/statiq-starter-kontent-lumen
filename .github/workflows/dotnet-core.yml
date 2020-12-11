@@ -1,0 +1,50 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --configuration Release --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish --configuration Release --no-build -o ./tools
+    - name: "Artifact : generator"
+      uses: actions/upload-artifact@v2
+      with:
+        name: "Generator"
+        path: ./tools
+    - name: Publish
+      run: dotnet run --configuration Release  
+      env:
+        LinkRoot: ${{ secrets.LINKROOT }} # Fix subfolder links https://statiq.dev/framework/configuration/settings
+        Host:  ${{ secrets.HOST }} # Make links absolute (for feeds, OG...)
+    - name: "Artifact : site"
+      uses: actions/upload-artifact@v2
+      with:
+        name: "Site"
+        path: ./output     
+    - name: Deploy 🚀
+      if: github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@3.6.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: output
+        CLEAN: true # Automatically remove deleted files from the deploy branch

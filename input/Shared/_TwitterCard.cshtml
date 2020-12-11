@@ -1,0 +1,37 @@
+﻿@using Kentico.Kontent.ImageTransformation
+@model ITwitterCard
+@* Twitter Card - https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image *@
+@if (!string.IsNullOrWhiteSpace(Model.TwitterTitle))
+{
+    // Title and Card are required, the rest is optional
+    <meta name="twitter:card" content="@Model.TwitterCard" />
+    <meta property="twitter:title" content="@Model.TwitterTitle" />
+
+    @if (!string.IsNullOrWhiteSpace(@Model.TwitterDescription))
+    {
+        <meta property="twitter:description" content="@Model.TwitterDescription" />
+    }
+    @if (!string.IsNullOrWhiteSpace(@Model.TwitterSite))
+    {
+        <meta name="twitter:site" content="@Model.TwitterSite" />
+    }
+    @if (!string.IsNullOrWhiteSpace(@Model.TwitterCreator))
+    {
+        <meta name="twitter:creator" content="@Model.TwitterCreator" />
+    }
+
+    @if (Model.TwitterImage != null)
+    {
+        // https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
+        // summary_large_image aspect 2:1, min 300x157 max 4096x4096
+        // summary aspect 1:1, min 144x144 max maximum of 4096x4096 pixels
+        var (height, width) = Model.TwitterCard switch
+        {
+            "summary_large_image" => (height: 500, width: 1000),
+            _ => (height: 500, width: 500)
+        };
+
+        <meta name="twitter:image" content="@(new ImageUrlBuilder(new Uri(Model.TwitterImage.Url)).WithWidth(width).WithHeight(height).WithFormat(ImageFormat.Webp).WithFitMode(ImageFitMode.Crop).Url)" />
+        <meta name="twitter:image:alt" content="@Model.TwitterImage.Description" />
+    }
+}

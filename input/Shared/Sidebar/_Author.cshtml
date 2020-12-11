@@ -1,0 +1,25 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+@using Kentico.Kontent.ImageTransformation
+@model SidebarViewModel
+@{
+    var author = Model.Author;
+}
+
+<div class="sidebar__author" data-kontent-item-id="@author.System.Id">
+    <a href="@IExecutionContext.Current.GetLink("/")">
+        <img src="@(new ImageUrlBuilder(new Uri(author.AvatarImage.FirstOrDefault().Url)).WithWidth(75).WithFormat(ImageFormat.Webp).Url)"
+             class="sidebar__author-photo"
+             width="75"
+             height="75"
+             alt="@author.Name"
+             data-kontent-element-codename="@Author.AvatarImageCodename" />
+    </a>
+    @{
+        var tag = Model.IsIndex ? "h1" : "h2";
+    }
+
+    <@tag class="sidebar__author-title" data-kontent-element-codename="@Author.NameCodename">
+        <a class="sidebar__author-title-link" href="@IExecutionContext.Current.GetLink("/")">@author.Name</a>
+    </@tag>
+    <p class="sidebar__author-subtitle" data-kontent-element-codename="@Author.BioCodename">@author.Bio</p>
+</div>

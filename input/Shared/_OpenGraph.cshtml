@@ -1,0 +1,75 @@
+﻿@using Kentico.Kontent.ImageTransformation
+@model IOpenGraph
+@* Open Graph - https://ogp.me/
+    Title, Type, Image, Url are required
+*@
+
+@if (!string.IsNullOrWhiteSpace(Model.OgType) &&
+!string.IsNullOrWhiteSpace(Model.OgTitle) &&
+Model.OgImage.Any())
+{
+    <meta property="og:type" content="@Model.OgType" />
+    <meta property="og:url" content="@Document.GetLink(true)" />
+    <meta property="og:title" content="@Model.OgTitle" />
+    @if (!string.IsNullOrWhiteSpace(@Model.OgDescription))
+    {
+        <meta property="og:description" content="@Model.OgDescription" />
+    }
+    @if (Model.OgImage != null)
+    {
+        foreach (var img in Model.OgImage)
+        {
+            var width = 800;
+            var height = 800;
+
+            <meta property="og:image" content="@(new ImageUrlBuilder(new Uri(img.Url)).WithWidth(width).WithHeight(height).WithFormat(ImageFormat.Webp).WithFitMode(ImageFitMode.Crop).Url)" />
+            <meta property="og:image:alt" content="@img.Description" />
+            <meta property="og:image:width" content="@width" />
+            <meta property="og:image:height" content="@height" />
+            <meta property="og:image:type" content="@img.Type" />
+        }
+    }
+    @if (Model is IOpenGraphArticle article)
+    {
+        @if (article.OgAuthor.Any())
+        {
+            foreach (var author in article.OgAuthor)
+            {
+                <meta property="article:author" content="@author" />
+            }
+        }
+        @if (!string.IsNullOrWhiteSpace(article.OgSection))
+        {
+            <meta property="article:section" content="@article.OgSection" />
+        }
+        @if (article.OgTag.Any())
+        {
+            foreach (var tag in article.OgTag)
+            {
+                <meta property="article:tag" content="@tag" />
+            }
+        }
+        <meta property="article:published_time " content="@article.OgPublishedTime.ToString("o")" />
+        <meta property="article:modified_time" content="@article.OgModifiedTime.ToString("o")" />
+        <meta property="article:expiration_time" content="@article.OgExpirationTime.ToString("o")" />
+    }
+    else if (Model is IOpenGraphProfile profile)
+    {
+        @if (!string.IsNullOrWhiteSpace(profile.FirstName))
+        {
+            <meta property="profile:first_name" content="@profile.FirstName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.LastName))
+        {
+            <meta property="profile:last_name" content="@profile.LastName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.UserName))
+        {
+            <meta property="profile:username" content="@profile.UserName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.Gender))
+        {
+            <meta property="profile:gender" content="@profile.Gender" />
+        }
+    }
+}

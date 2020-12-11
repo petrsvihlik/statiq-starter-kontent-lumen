@@ -1,0 +1,54 @@
+﻿@model PostViewModel
+@{
+    var article = Model.Article;
+    ViewBag.Title = $"{article.Title} - {Model.Metadata.Title}";
+    ViewData["SiteMetadata"] = Model.Metadata;
+    ViewData["Author"] = Model.Author;
+}
+
+@if (Model != null)
+{
+    <div data-kontent-item-id="@Model.Article.System.Id">
+        <div>
+            <a href="@IExecutionContext.Current.GetLink("/")" class="article-single__home-button active">
+                All Articles
+            </a>
+        </div>
+        <div class="article-single">
+            <div class="article-single__inner">
+                <h1 class="article-single__title" data-kontent-element-codename="@Article.TitleCodename">@Html.DisplayFor(model => article.Title)</h1>
+                <div class="article-single__body" data-kontent-element-codename="@Article.ContentCodename">
+                    @Html.Raw(article.Content)
+                </div>
+            </div>
+            <div data-kontent-element-codename="@Article.PublishDateCodename" class="article-single__date">
+                <em>
+                    Published @Html.DisplayFor(model => article.PublishDate)
+                </em>
+            </div>
+        </div>
+        <div class="article-single__footer">
+            <div class="article-single__tags">
+                <ul class="article-single__tags-list" data-kontent-element-codename="@Article.TagsCodename">
+                    @foreach (var tag in article.TagObjects)
+                    {
+                        <li class="article-single__tags-list-item"><a class="article-single__tags-list-item-link" href="@IExecutionContext.Current.GetLink($"/tag/{tag.Slug}")">@tag.Title</a></li>
+                    }
+                </ul>
+            </div>
+            <hr />
+            <div class="article-single__footer-text">
+                <p>
+                    Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+                    <a href="https://www.twitter.com/#" rel="noopener noreferrer" target="_blank" data-kontent-element-codename="@Article.AuthorCodename"><br /><strong>@article.ArticleAuthor.Name</strong> on Twitter</a>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+@section Head {
+    @{ await Html.RenderPartialAsync("_OpenGraph", article);
+        await Html.RenderPartialAsync("_TwitterCard", article);
+    }
+}

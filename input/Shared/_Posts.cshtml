@@ -1,0 +1,22 @@
+﻿@using System.Globalization
+@using Kentico.Kontent.Statiq.Lumen.Models
+@model PagedContent<Article>
+
+@foreach (var article in Model.Items)
+{
+    <div class="article" data-kontent-item-id="@article.System.Id">
+        <div><time class="article__meta-time" data-kontent-element-codename="@Article.PublishDateCodename" datetime="@article.PublishDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat)">@Html.DisplayFor(model => article.PublishDate)</time><span class="article__meta-divider"></span><span class="article__meta-category"><a class="article__meta-category-link" href="@IExecutionContext.Current.GetLink($"/category/{article.SelectedCategory.Slug}")" data-kontent-element-codename="@Article.CategoryCodename">@Html.Raw(string.Join(", ", article.SelectedCategory.Title))</a></span></div>
+        <h2 class="article__title" data-kontent-element-codename="@Article.TitleCodename"><a class="article__title-link" href="@IExecutionContext.Current.GetLink($"/posts/{article.Slug}")">@article.Title</a></h2>
+        <p class="article__description" data-kontent-element-codename="@Article.DescriptionCodename">@article.Description</p>
+        <a class="article__readmore" href="@IExecutionContext.Current.GetLink($"/posts/{article.Slug}")">Read</a>
+    </div>
+}
+
+@if (Model.TotalPages > 1)
+{
+    var homeUrl = IExecutionContext.Current.GetLink("/");
+    <div class="pagination">
+        <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link @(Model.Previous != null ? "" : "pagination__prev-link--disable")" href="@(Model.Previous?.Url ?? homeUrl)">← PREV</a></div>
+        <div class="pagination__next"><a rel="next" class="pagination__next-link @(Model.Next != null ? "" : "pagination__next-link--disable") " href="@(Model.Next?.Url ?? homeUrl)">→ NEXT</a></div>
+    </div>
+}

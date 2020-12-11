@@ -1,0 +1,12 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+@model SidebarViewModel
+<div class="sidebar">
+    <div class="sidebar__inner">
+        @await Html.PartialAsync("Shared/Sidebar/_Author", Model)
+        @await Html.PartialAsync("Shared/Sidebar/_Menu", Model.Homepage.MenuItems, new ViewDataDictionary(ViewData) { { nameof(Model.ActiveMenuItem), Model.ActiveMenuItem } })
+        @await Html.PartialAsync("Shared/Sidebar/_Contacts", Model.Contacts)
+        <div class="sidebar__copyright" data-kontent-item-id="@Model.Metadata.System.Id" data-kontent-element-codename="@SiteMetadata.CopyrightCodename">
+            @Model.Metadata.Copyright
+        </div>
+    </div>
+</div>

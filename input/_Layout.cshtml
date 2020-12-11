@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    @{
+        var metadata = ViewBag.SiteMetadata as SiteMetadata;
+        var author = ViewBag.Author as Author;
+        var title = ViewBag.Title ?? metadata.Title;
+        ViewBag.TagManagerId = IExecutionContext.Current.Settings.GetString("TagManagerId");
+    }
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Google Tag Manager -->
+    @if (!string.IsNullOrWhiteSpace(ViewBag.TagManagerId))
+    {
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','@ViewBag.TagManagerId');</script>
+    }
+    <!-- End Google Tag Manager -->
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for @title" href="@IExecutionContext.Current.GetLink("/feed.rss")" />
+    <link rel="alternate" type="application/atom+xml" title="Atom feed for @title" href="@IExecutionContext.Current.GetLink("/feed.atom")" />
+    <title>@title</title>
+    <meta name="description" content="@(metadata.Subtitle ?? "Blog about development.")" />
+    <meta name="author" content="@author.Name" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/scss/init.css")" />
+    <link rel="preload" href="@(IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/font/fontello.woff2"))?65524428" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/css/fontello.css")" />
+    <link rel="shortcut icon" href="@IExecutionContext.Current.GetLink("favicon.ico")" />
+    <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/@@kentico/kontent-smart-link@latest/dist/kontent-smart-link.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@kentico/kontent-smart-link@latest/dist/kontent-smart-link.styles.css" />
+    <script type="text/javascript">
+        KontentSmartLink.initializeOnLoad({
+            queryParam: 'preview',
+        });
+    </script>
+    <script type="application/javascript" src="@IExecutionContext.Current.GetLink("/assets/js/darkmode.js")"></script>
+    @RenderSection("Head", required: false)
+</head>
+
+<body id="@(ViewBag.PageType)" data-kontent-project-id="@(((IConfiguration)IExecutionContext.Current.Settings).GetValue<string>("DeliveryOptions:ProjectId"))" data-kontent-language-codename="en-US">
+    @if (!string.IsNullOrWhiteSpace(ViewBag.TagManagerId))
+    {
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=@ViewBag.TagManagerId"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    }
+    <div class="layout">
+        @RenderBody()
+    </div>
+</body>
+</html>

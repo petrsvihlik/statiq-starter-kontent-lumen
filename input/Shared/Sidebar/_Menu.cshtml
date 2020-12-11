@@ -1,0 +1,14 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@model IEnumerable<Page>
+
+<nav class="menu">
+    <ul class="menu__list">
+        @foreach (var item in Model)
+        {
+            <li class="menu__list-item" data-kontent-item-id="@item.System.Id">
+                <a href="@IExecutionContext.Current.GetLink(item.Url == "/" ? "/" : $"pages/{item.Url}")" class="menu__list-item-link @(item.Url == ViewBag.ActiveMenuItem ? " active--exact  active" : "")" data-kontent-element-codename="@Article.TitleCodename">@item.Title</a>
+            </li>
+        }
+    </ul>
+    @await Html.PartialAsync("Shared/Sidebar/_Switcher")
+</nav>
